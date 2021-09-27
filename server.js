@@ -13,8 +13,8 @@ dotenv.config()
 /**
  * Connect to MongoDb
  */
-// const uri = "mongodb+srv://dacchien:12345@cluster0.aqosg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-const uri = "mongodb://localhost:27017/NetWorkApp"
+const uri = "mongodb+srv://dacchien:12345@cluster0.aqosg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+// const uri = "mongodb://localhost:27017/NetWorkApp"
 mongoose.connect(uri, () => {
     console.log("Connect MongoDB successfully.");
 }).catch(err => console.log(err.reason))
