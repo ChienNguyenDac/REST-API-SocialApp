@@ -13,9 +13,8 @@ dotenv.config()
 /**
  * Connect to MongoDb
  */
-const uri = "mongodb+srv://dacchien:12345@cluster0.aqosg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 // const uri = "mongodb://localhost:27017/NetWorkApp"
-mongoose.connect(uri, () => {
+mongoose.connect(process.env.MONGO_URL, () => {
     console.log("Connect MongoDB successfully.");
 }).catch(err => console.log(err.reason))
 
@@ -30,7 +29,7 @@ const app = express()
 // const messageIo = io.of("/")
 
 app.use(express.json())
-app.use(express.static('public'))
+app.use(express.static(__dirname + 'public'))
 app.use(cors())
 
 app.use('/api/auth', AuthRoute)
