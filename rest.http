@@ -1,0 +1,74 @@
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+    "firstname": "Đắc",
+    "lastname": "Chiến",
+    "username": "dacchien",
+    "password": "123456789",
+    "gender": "male",
+    "bod" : "06-18-2001"
+}
+
+###
+
+POST http://localhost:5000/api/auth/login 
+Content-Type: application/json
+
+{
+    "username": "dacchien",
+    "password": "123456789"
+}
+
+
+###
+POST http://localhost:5000/api/auth/login 
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "admin"
+}
+
+###
+POST http://localhost:5000/api/user/614d35ea6d5169498eb96c6f/follow
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6IjYxNGQ0ODQ5MTBhNWYzNGEyOGJlZjc3OSJ9LCJpYXQiOjE2MzI0NTQ3NDB9.vFNQyNTtKWYoRAZwa3BzTGaGM6orWF7JCfXZwb_ZBzY
+
+###
+POST http://localhost:5000/api/user/614d484910a5f34a28bef779/friend
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6IjYxNGQzNWVhNmQ1MTY5NDk4ZWI5NmM2ZiJ9LCJpYXQiOjE2MzI0NTc4MjF9.2pwVabH33iHo4p3rZ7PL2L2gIfBR9ens1S5tbxzJSz8
+
+###
+GET http://localhost:5000/api/user/search?key=Nguyễn%20Đắc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6IjYxNGQzNWVhNmQ1MTY5NDk4ZWI5NmM2ZiJ9LCJpYXQiOjE2MzI0NTc4MjF9.2pwVabH33iHo4p3rZ7PL2L2gIfBR9ens1S5tbxzJSz8
+
+###
+POST  http://localhost:5000/api/conversation
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6IjYxNGQzNWVhNmQ1MTY5NDk4ZWI5NmM2ZiJ9LCJpYXQiOjE2MzI2MjY5MjF9.rhVHUwJGDlysXv0QGnpDlEqi1AaSakSJM5MlC8AH6lk
+
+{
+    "members":[
+        "614d484910a5f34a28bef779"
+    ]
+}
+
+###
+GET http://localhost:5000/api/conversation
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6IjYxNGQzNWVhNmQ1MTY5NDk4ZWI5NmM2ZiJ9LCJpYXQiOjE2MzI2MjQ1MDZ9.l9-cokYONl1sfPWgDFZXTmvNDZpIQQKNSleVp7d9I3g
+
+
+###
+POST http://localhost:5000/api/message
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6IjYxNGQ0ODQ5MTBhNWYzNGEyOGJlZjc3OSJ9LCJpYXQiOjE2MzI1ODM0MTh9.c8NdWekQU7lxxXmtQqNtI8Xyew1Dv1Emd9TBceiC66E
+Content-Type: application/json
+
+{
+    "conversationId" : "614fef0ee354ec7e1687c17a",
+    "senderId": "614d35ea6d5169498eb96c6f",
+    "content": "Hello !!!"
+}
+
+###
+GET http://localhost:5000/api/message/614fef19e354ec7e1687c17d
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJJZCI6IjYxNGQ0ODQ5MTBhNWYzNGEyOGJlZjc3OSJ9LCJpYXQiOjE2MzI1ODM0MTh9.c8NdWekQU7lxxXmtQqNtI8Xyew1Dv1Emd9TBceiC66E
